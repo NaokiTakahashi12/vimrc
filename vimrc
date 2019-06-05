@@ -50,4 +50,5 @@ colorscheme PaperColor
 set background=dark
 filetype on
 autocmd FileType c,cpp,perl,html,py,sh,jar,php,rs set cindent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 

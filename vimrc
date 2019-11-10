@@ -1,3 +1,18 @@
+syntax on
+filetype on
+colorscheme PaperColor
+
+highlight ZenkakuSpace cterm=underline ctermfg=1ightblue guibg=#666666
+highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
+
+autocmd quickfixcmdpost *grep* cwindow
+autocmd quickfixcmdpost *make* copen
+autocmd BufNewFile,BufRead * match ZenkakuSpace / /
+autocmd FileType c,cpp,cc,cxx,h,hpp,hxx,hh,perl,html,py,sh,jar,php,rs set cindent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType urdf setlocal ts=2 sts=2 sw=2 expandtab
+
 let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
 let mapleader = "\<Space>"
 
@@ -55,20 +70,5 @@ set visualbell t_vb=
 set virtualedit=onemore
 set t_Co=256
 set laststatus=2
-set statusline=%<(%{expand('%:p:h')}/%{expand('%:p:t')})\ %M%M%M%r%w%h\ \ %=\ ENC[%{&fenc!=''?&fenc:&enc}]\ FMT[%{&ff}]\ [%v][%l/%L][%p%%]
 set background=dark
- 
-syntax on
-filetype on
-colorscheme PaperColor
-
-highlight ZenkakuSpace cterm=underline ctermfg=1ightblue guibg=#666666
-highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
-
-autocmd quickfixcmdpost *grep* cwindow
-autocmd quickfixcmdpost *make* copen
-autocmd BufNewFile,BufRead * match ZenkakuSpace / /
-autocmd FileType c,cpp,cc,cxx,h,hpp,hxx,hh,perl,html,py,sh,jar,php,rs set cindent
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType urdf setlocal ts=2 sts=2 sw=2 expandtab
+set statusline=%<(%{expand('%:p:h')}/%{expand('%:p:t')})\ %M%M%M%r%w%h\ \ %=\ ENC[%{&fenc!=''?&fenc:&enc}]\ FMT[%{&ff}]\ [%v][%l/%L][%p%%]

@@ -18,12 +18,21 @@ let mapleader = "\<Space>"
 
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>wa :wa<CR>
+nnoremap <Leader>qa :qa<CR>
 nnoremap <Leader>wq :wq<CR>
-nnoremap <Leader>m :make<CR><CR><C-w><C-w>
+nnoremap <Leader>wqa :wqa<CR>
+nnoremap <Leader>vs :vs<CR>
+nnoremap <Leader>sp :sp<CR>
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
+nnoremap <Leader>H <C-w>H
+nnoremap <Leader>J <C-w>J
+nnoremap <Leader>K <C-w>K
+nnoremap <Leader>L <C-w>L
+nnoremap <Leader>m :make<CR><CR><C-w><C-w>
 
 inoremap <silent> jj <Esc>
 inoremap <silent> JJ <Esc>
@@ -31,6 +40,7 @@ inoremap <silent> JJ <Esc>
 nnoremap + <C-a>
 nnoremap - <C-x>
 nnoremap <ESC><ESC> :nohlsearch <CR>
+nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 nnoremap ; :

@@ -1,6 +1,9 @@
+
 syntax on
 filetype on
+
 colorscheme PaperColor
+"colorscheme Tomorrow-Night
 
 highlight ZenkakuSpace cterm=underline ctermfg=1ightblue guibg=#666666
 highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
@@ -10,41 +13,52 @@ autocmd quickfixcmdpost *make* copen
 autocmd BufNewFile,BufRead * match ZenkakuSpace / /
 autocmd FileType c,cpp,cc,cxx,h,hpp,hxx,hh,perl,html,py,sh,jar,php,rs set cindent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType urdf setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType repos setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType xml setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
 let mapleader = "\<Space>"
 
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>wa :wa<CR>
-nnoremap <Leader>qa :qa<CR>
-nnoremap <Leader>wq :wq<CR>
-nnoremap <Leader>wqa :wqa<CR>
-nnoremap <Leader>vs :vs<CR>
-nnoremap <Leader>sp :sp<CR>
-nnoremap <Leader>h <C-w>h
-nnoremap <Leader>j <C-w>j
-nnoremap <Leader>k <C-w>k
-nnoremap <Leader>l <C-w>l
-nnoremap <Leader>H <C-w>H
-nnoremap <Leader>J <C-w>J
-nnoremap <Leader>K <C-w>K
-nnoremap <Leader>L <C-w>L
-nnoremap <Leader>m :make<CR><CR><C-w><C-w>
+nnoremap <silent><Leader>q :q<CR>
+nnoremap <silent><Leader>w :wa<CR>
+nnoremap <silent><Leader>v :vs<CR>
+nnoremap <silent><Leader>s :sp<CR>
+nnoremap <silent><Leader>= <C-w>=
+nnoremap <silent><Leader>, <C-w>10<
+nnoremap <silent><Leader>. <C-w>10>
+nnoremap <silent><Leader>h <C-w>h
+nnoremap <silent><Leader>j <C-w>j
+nnoremap <silent><Leader>k <C-w>k
+nnoremap <silent><Leader>l <C-w>l
+nnoremap <silent><Leader>H <C-w>H
+nnoremap <silent><Leader>J <C-w>J
+nnoremap <silent><Leader>K <C-w>K
+nnoremap <silent><Leader>L <C-w>L
+nnoremap <silent><Leader>t :tabnew<CR>
+nnoremap <silent><Leader>b :tab ba<CR>
+nnoremap <silent><Leader>[ :term<CR>
+nnoremap <silent><Leader>m :make<CR><CR><C-w><C-w>
 
-inoremap <silent> jj <Esc>
-inoremap <silent> JJ <Esc>
-
-nnoremap + <C-a>
-nnoremap - <C-x>
-nnoremap <ESC><ESC> :nohlsearch <CR>
-nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+inoremap <silent>jj <Esc>
+inoremap <silent>JJ <Esc>
 
 nnoremap ; :
 nnoremap : ;
+
+nnoremap <silent>+	   <C-a>
+nnoremap <silent>-	   <C-x>
+nnoremap <silent>gr	   :tabprevious<CR>
+nnoremap <ESC><ESC>	   :nohlsearch<CR>
+nnoremap <silent><C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <silent><C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <silent><Up>	 <C-w>k
+nnoremap <silent><Down>	 <C-w>j
+nnoremap <silent><Left>	 <C-w>h
+nnoremap <silent><Right> <C-w>l
+nnoremap <silent><S-Left>	:tabprevious<CR>
+nnoremap <silent><S-Right>	:tabnext<CR>
 
 set number
 set ruler
@@ -60,6 +74,7 @@ set hlsearch
 set incsearch
 set autoread
 set autoindent
+set wildignorecase
 
 set nocompatible
 set noswapfile
@@ -68,17 +83,20 @@ set nostartofline
 set noerrorbells
 set noexpandtab
 
-set fencs=iso-2022-jp,enc-jp,cp932
-set encoding=utf-8
+set background=dark
+set fencs=utf-8,iso-2022-jp,enc-jp,cp932
 set fileencoding=utf-8
-set tabstop=4
+set encoding=utf-8
 set shiftwidth=4
+set tabstop=4
 
-set clipboard+=unnamed,autoselect
+set clipboard=unnamed,autoselect
 set scrolloff=5
 set visualbell t_vb=
 set virtualedit=onemore
+set wildmode=list:full
+
 set t_Co=256
 set laststatus=2
-set background=dark
-set statusline=%<(%{expand('%:p:h')}/%{expand('%:p:t')})\ %M%M%M%r%w%h\ \ %=\ ENC[%{&fenc!=''?&fenc:&enc}]\ FMT[%{&ff}]\ [%v][%l/%L][%p%%]
+set statusline=%<\ %{expand('%:p:h')}/%{expand('%:p:t')}\ %m%r%w%h\ %=\ Encode=%{&fenc!=''?&fenc:&enc}\ \|\ Format=%{&ff}\ \|\ FileType=%Y\ \|\ Char=0x%02.2B\ \|\ Position=%l/%L,(%v)\ \|\ Persent=%3p%%
+

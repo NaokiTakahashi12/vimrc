@@ -87,8 +87,9 @@ set background=dark
 set fencs=utf-8,iso-2022-jp,enc-jp,cp932
 set fileencoding=utf-8
 set encoding=utf-8
+set tabstop=8
 set shiftwidth=4
-set tabstop=4
+set softtabstop=4
 
 set clipboard=unnamed,autoselect
 set scrolloff=5

@@ -47,18 +47,18 @@ inoremap <silent>JJ <Esc>
 nnoremap ; :
 nnoremap : ;
 
-nnoremap <silent>+	   <C-a>
-nnoremap <silent>-	   <C-x>
-nnoremap <silent>gr	   :tabprevious<CR>
-nnoremap <ESC><ESC>	   :nohlsearch<CR>
+nnoremap <silent>+ <C-a>
+nnoremap <silent>- <C-x>
+nnoremap <silent>gr :tabprevious<CR>
+nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap <silent><C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <silent><C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap <silent><Up>	 <C-w>k
-nnoremap <silent><Down>	 <C-w>j
-nnoremap <silent><Left>	 <C-w>h
+nnoremap <silent><Up> <C-w>k
+nnoremap <silent><Down> <C-w>j
+nnoremap <silent><Left> <C-w>h
 nnoremap <silent><Right> <C-w>l
-nnoremap <silent><S-Left>	:tabprevious<CR>
-nnoremap <silent><S-Right>	:tabnext<CR>
+nnoremap <silent><S-Left> :tabprevious<CR>
+nnoremap <silent><S-Right> :tabnext<CR>
 
 set number
 set ruler
@@ -75,19 +75,20 @@ set incsearch
 set autoread
 set autoindent
 set wildignorecase
+set cindent
+set expandtab
 
 set nocompatible
 set noswapfile
 set nobackup
 set nostartofline
 set noerrorbells
-set noexpandtab
 
 set background=dark
 set fencs=utf-8,iso-2022-jp,enc-jp,cp932
 set fileencoding=utf-8
 set encoding=utf-8
-set tabstop=8
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
@@ -100,4 +101,9 @@ set wildmode=list:full
 set t_Co=256
 set laststatus=2
 set statusline=%<\ %{expand('%:p:h')}/%{expand('%:p:t')}\ %m%r%w%h\ %=\ Encode=%{&fenc!=''?&fenc:&enc}\ \|\ Format=%{&ff}\ \|\ FileType=%Y\ \|\ Char=0x%02.2B\ \|\ Position=%l/%L,(%v)\ \|\ Persent=%3p%%
+
+let _curfile=expand("%:r")
+if _curfile == 'Makefile'
+    set noexpandtab
+endif
 

@@ -12,11 +12,10 @@ autocmd quickfixcmdpost *grep* cwindow
 autocmd quickfixcmdpost *make* copen
 autocmd BufNewFile,BufRead * match ZenkakuSpace / /
 autocmd FileType c,cpp,cc,cxx,h,hpp,hxx,hh,perl,html,py,sh,jar,php,rs set cindent
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType urdf setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType repos setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType xml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType urdf,launch setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
 let mapleader = "\<Space>"
@@ -75,7 +74,6 @@ set incsearch
 set autoread
 set autoindent
 set wildignorecase
-set cindent
 set expandtab
 
 set nocompatible
@@ -106,4 +104,5 @@ let _curfile=expand("%:r")
 if _curfile == 'Makefile'
     set noexpandtab
 endif
+
 
